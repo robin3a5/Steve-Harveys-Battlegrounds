@@ -1,0 +1,40 @@
+.scoreholder {
+    opacity: 95%;
+    background-color: #0c29cf;
+    margin: 1.8%;
+    outline: black solid;
+}
+
+.scoreboard {
+    background: radial-gradient(circle, rgba(193, 207, 227, 1) 0%, rgba(72, 127, 214, 1) 37%, rgba(24, 60, 119, 1) 100%);
+    margin: 3%;
+    outline: solid black;
+}
+
+.scoreboardcontainer {
+    outline: black solid 4px;
+}
+
+.strike {
+    width: 40px;
+    color: black;
+}
+
+input {
+    text-align: center;
+    color: black;
+}
+
+.question {
+    font-weight: bold;
+    color: black;
+}
+
+input::placeholder {
+    font-weight: bold;
+    color: black;
+}
+
+label {
+    color: black;
+}

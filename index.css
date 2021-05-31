@@ -26,6 +26,7 @@ input {
 .question {
     font-weight: bold;
     color: black;
+    font-size: large;
 }
 
 input::placeholder {
@@ -35,4 +36,11 @@ input::placeholder {
 
 label {
     color: black;
+}
+
+.background-light {
+    background: linear-gradient(90deg, rgb(12, 207, 100) 0%, rgb(57, 27, 226) 100%);
+}
+.background-dark {
+    background: linear-gradient(90deg, rgb(13, 155, 77) 0%, rgb(57, 27, 226) 100%);
 }

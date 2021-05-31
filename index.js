@@ -35,6 +35,10 @@ const startButton = document.getElementById("startButton");
 
 const teamHolder = document.getElementById("teamHolder");
 
+const background = document.getElementById("background")
+
+const backgroundchanger = document.getElementById("background-change")
+
 var questionSelector = 0;
 var correctCounter = 0;
 var questionsArrayMax = questions.length;
@@ -43,7 +47,7 @@ scoreholdera.value = 0;
 scoreholderb.value = 0;
 var roundCounter = 1;
 var previousQuestions = [];
-
+// var backgroundcounter = 1;
 
 // no same results
 // go through and simplify variables 
@@ -56,6 +60,20 @@ var previousQuestions = [];
 // if question selected equals a previous question choose new question
 // repeat until new question is chosen
 // log selected question into previous questions array
+
+// backgroundchanger.addEventListener('click', function (event) {
+
+//    if (backgroundcounter % 2 == 0) {
+//    background.classList.add('background-light');
+//    background.classList.remove('background-dark');
+//    }
+//    else {
+//    background.classList.remove('background-light');
+//    background.classList.add('background-dark');
+//    }
+//    backgroundcounter ++;
+// });
+
 
 function selectQuestion() {   
    questionSelector = Math.floor(Math.random() * Math.floor(questionsArrayMax));
@@ -163,6 +181,7 @@ submitButton.addEventListener('click', function (event) {
    
    if (correctCounter == questions[questionSelector].questionsLength) {
       submitButton.classList.add("d-none");
+      document.querySelector('#submitButton').disabled = true
       newGameButton.classList.remove("d-none");
       addPoints();
    }
@@ -183,6 +202,7 @@ newGameButton.addEventListener('click', function (event) {
    setplaceholders();
    newGameButton.classList.add("d-none");
    submitButton.classList.remove("d-none");
+   document.querySelector('#submitButton').disabled = false;
    roundCounter += 1;
    if (roundCounter % 2 == 0) {
       teamTurn = 2;
@@ -213,6 +233,7 @@ function addStrike() {
    }
    else {
       submitButton.classList.add("d-none");
+      document.querySelector('#submitButton').disabled = true
       newGameButton.classList.remove("d-none");
       if (teamTurn == 1) {
          scoreholdera.value = parseInt(scoreholder.value) + parseInt(scoreholdera.value);
@@ -351,6 +372,7 @@ function checkFamilySteal() {
          answer8.placeholder = questions[questionSelector].answer8;
       }
       submitButton.classList.add("d-none");
+      document.querySelector('#submitButton').disabled = true
       newGameButton.classList.remove("d-none");
    }
 }

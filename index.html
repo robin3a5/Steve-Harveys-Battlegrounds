@@ -39,9 +39,9 @@
                     <input type="text" id="family2Set" class="form-control">
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <!-- make button smaller along with form inputs above -->
-                <button id="startButton" class="btn btn-primary" style="width: 20%;" type="button">Drop Into The Feud!</button>
+            <div  style="display: flex;
+            justify-content: center;">
+                <button id="startButton" class="btn btn-primary" type="submit">Drop Into The Feud!</button>
             </div>
         </div>
         <div id="gameContainer">
@@ -104,20 +104,26 @@
 
                 </div>
             </div>
-            <div class="row d-flex justify-content-center">
-                <!-- center question text -->
+            <div class="row d-flex justify-content-center" >
+                <div style="display: flex;
+                justify-content: center;">
                 <p id="question" class="question">Sample Question</p>
             </div>
+            </div>
             <div class="row justify-content-center" style="margin-top: 2%;">
-                <!-- center guess text -->
-                <label style="margin-right: .3%;"><b>Enter your guess here:</b></label>
+                <div style="display: flex;
+                justify-content: center;">
+                    <label class="whiteText" >Enter your guess here:</label>
+                </div>
                 <input id="userguess" class="form-control" type="text">
             </div>
             <div class="row justify-content-center" style="margin-top: 2%;">
                 <!-- make submit and new game buttons smaller -->
-                <button id="submitButton" class="btn btn-primary" style="width: 20%;" type="submit">Submit Answer </button>
-                <!-- Add selector that allows pressing enter to click new game button -->
+                <div style="display: flex;
+                justify-content: center;">
+                <button id="submitButton" class="btn btn-primary" type="submit">Submit Answer </button>
                 <button id="newGameButton" class="btn btn-primary" type="submit">New Game</button>
+            </div>
             </div>
             <div class="row justify-content-center">
                 <input class="strike" id="strike1" type="text" disabled placeholder="">

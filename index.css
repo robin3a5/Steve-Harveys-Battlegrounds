@@ -44,3 +44,7 @@ label {
 .background-dark {
     background: linear-gradient(90deg, rgb(13, 155, 77) 0%, rgb(57, 27, 226) 100%);
 }
+
+.whiteText{
+color: white;
+}

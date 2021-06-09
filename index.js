@@ -173,6 +173,7 @@ startButton.addEventListener('click', function (event) {
    selectQuestion();
    setplaceholders();
    question.innerHTML = questions[questionSelector].question;
+   document.querySelector('#newGameButton').disabled = true;
 });
 
 submitButton.addEventListener('click', function (event) {
@@ -181,7 +182,8 @@ submitButton.addEventListener('click', function (event) {
    
    if (correctCounter == questions[questionSelector].questionsLength) {
       submitButton.classList.add("d-none");
-      document.querySelector('#submitButton').disabled = true
+      document.querySelector('#submitButton').disabled = true;
+      document.querySelector('#newGameButton').disabled = false;
       newGameButton.classList.remove("d-none");
       addPoints();
    }
@@ -190,7 +192,28 @@ submitButton.addEventListener('click', function (event) {
 userguess.addEventListener("keyup", function(event) {
    if (event.key === "Enter") {
      event.preventDefault();
-     document.getElementById("submitButton").click();}
+      
+      if(document.querySelector('#newGameButton').disabled == true) {
+         document.getElementById("submitButton").click();
+      }
+      else {
+         document.getElementById("newGameButton").click();
+      }
+   }
+ });
+
+ family1Set.addEventListener("keyup", function(event) {
+   if (event.key === "Enter") {
+     event.preventDefault();
+     document.getElementById("startButton").click();
+   }
+ });
+
+ family2Set.addEventListener("keyup", function(event) {
+   if (event.key === "Enter") {
+     event.preventDefault();
+     document.getElementById("startButton").click();
+   }
  });
 
 newGameButton.addEventListener('click', function (event) {
@@ -202,6 +225,7 @@ newGameButton.addEventListener('click', function (event) {
    setplaceholders();
    newGameButton.classList.add("d-none");
    submitButton.classList.remove("d-none");
+   document.querySelector('#newGameButton').disabled = true;
    document.querySelector('#submitButton').disabled = false;
    roundCounter += 1;
    if (roundCounter % 2 == 0) {
@@ -235,6 +259,8 @@ function addStrike() {
       submitButton.classList.add("d-none");
       document.querySelector('#submitButton').disabled = true
       newGameButton.classList.remove("d-none");
+      document.querySelector('#newGameButton').disabled = false;
+
       if (teamTurn == 1) {
          scoreholdera.value = parseInt(scoreholder.value) + parseInt(scoreholdera.value);
       }
@@ -373,6 +399,7 @@ function checkFamilySteal() {
       }
       submitButton.classList.add("d-none");
       document.querySelector('#submitButton').disabled = true
+      document.querySelector('#newGameButton').disabled = false;
       newGameButton.classList.remove("d-none");
    }
 }

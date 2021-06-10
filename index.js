@@ -47,20 +47,16 @@ scoreholdera.value = 0;
 scoreholderb.value = 0;
 var roundCounter = 1;
 var previousQuestions = [];
+var answer1Guessed = false;
+var answer2Guessed = false;
+var answer3Guessed = false;
+var answer4Guessed = false;
+var answer5Guessed = false;
+var answer6Guessed = false;
+var answer7Guessed = false;
+var answer8Guessed = false;
+
 // var backgroundcounter = 1;
-
-// no same results
-// go through and simplify variables 
-//Jesus really go through and shorten variables
-
-
-
-
-// run question selector
-// if question selected equals a previous question choose new question
-// repeat until new question is chosen
-// log selected question into previous questions array
-
 // backgroundchanger.addEventListener('click', function (event) {
 
 //    if (backgroundcounter % 2 == 0) {
@@ -174,6 +170,8 @@ startButton.addEventListener('click', function (event) {
    setplaceholders();
    question.innerHTML = questions[questionSelector].question;
    document.querySelector('#newGameButton').disabled = true;
+   document.getElementById("buzzer").volume = 0.05;
+   document.getElementById("correctSound").volume = 0.05;
 });
 
 submitButton.addEventListener('click', function (event) {
@@ -219,6 +217,7 @@ userguess.addEventListener("keyup", function(event) {
 newGameButton.addEventListener('click', function (event) {
    selectQuestion();
    clearPlaceholders();
+   resetGuessed();
    correctCounter = 0;
    question.innerHTML = questions[questionSelector].question;
    clearStrikes();
@@ -234,6 +233,7 @@ newGameButton.addEventListener('click', function (event) {
    else {
       teamTurn = 1;
    }
+   
 });
 
 function playBuzzer() {
@@ -404,6 +404,17 @@ function checkFamilySteal() {
    }
 }
 
+function resetGuessed(){
+   answer1Guessed = false;
+   answer2Guessed = false;
+   answer3Guessed = false;
+   answer4Guessed = false;
+   answer5Guessed = false;
+   answer6Guessed = false;
+   answer7Guessed = false;
+   answer8Guessed = false;
+}
+
 function guessChecker() {
    var answerTest1 = userguess.value.charAt(0).toUpperCase() + userguess.value.slice(1);
 
@@ -443,54 +454,111 @@ function guessChecker() {
    
    var questionAlternateAnswer8 = questions[questionSelector].alternateanswers8;
 
+
    
-   if ( answerTest1 === questionAnswer1 || answerTest2 === questionAnswer1 || answerTest3 === questionAnswer1 || answerTest1 === questionAlternateAnswer1 || answerTest2 === questionAlternateAnswer1 ||  answerTest3 === questionAlternateAnswer1) {
-      answer1.placeholder = questionAnswer1;
-      scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer1point;
-      checkFamilySteal()
-      playCorrect();
+    if ( answerTest1 === questionAnswer1 || answerTest2 === questionAnswer1 || answerTest3 === questionAnswer1 || answerTest1 === questionAlternateAnswer1 || answerTest2 === questionAlternateAnswer1 ||  answerTest3 === questionAlternateAnswer1) {
+      if (answer1Guessed) {
+         playBuzzer();
+         addStrike();
+      }
+      else{
+         answer1.placeholder = questionAnswer1;
+         scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer1point;
+         answer1Guessed = true;
+         checkFamilySteal()
+         playCorrect();
+      }
    }
    else if (answerTest1 === questionAnswer2 || answerTest2 === questionAnswer2 || answerTest3 === questionAnswer2 || answerTest1 === questionAlternateAnswer2 || answerTest2 === questionAlternateAnswer2 || answerTest3 === questionAlternateAnswer2) {
-      answer2.placeholder = questionAnswer2;
-      scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer2point;
-      checkFamilySteal()
-      playCorrect();
+      if (answer2Guessed) {
+         playBuzzer();
+         addStrike();
+      }
+      else{
+         answer2.placeholder = questionAnswer2;
+         scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer2point;
+         answer2Guessed = true;
+         checkFamilySteal()
+         playCorrect();
+      }    
    }
    else if (answerTest1 === questionAnswer3 || answerTest2 === questionAnswer3 || answerTest3 === questionAnswer3 || answerTest1 === questionAlternateAnswer3 || answerTest2 === questionAlternateAnswer3 || answerTest3 === questionAlternateAnswer3) {
-      answer3.placeholder = questionAnswer3;
-      scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer3point;
-      checkFamilySteal()
-      playCorrect();
+      if (answer3Guessed) {
+         playBuzzer();
+         addStrike();
+      }
+      else{
+         answer3.placeholder = questionAnswer3;
+         scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer3point;
+         answer3Guessed = true;
+         checkFamilySteal()
+         playCorrect();
+      }      
    }
    else if (answerTest1 === questionAnswer4 || answerTest2 === questionAnswer4 || answerTest3 === questionAnswer4 || answerTest1 === questionAlternateAnswer4 || answerTest2 === questionAlternateAnswer4 || answerTest3 === questionAlternateAnswer4) {
-      answer4.placeholder = questionAnswer4;
-      scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer4point;
-      checkFamilySteal()
-      playCorrect();
+      if (answer4Guessed) {
+         playBuzzer();
+         addStrike();
+      }
+      else{
+         answer4.placeholder = questionAnswer4;
+         scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer4point;
+         answer4Guessed = true;
+         checkFamilySteal()
+         playCorrect();
+      }   
    }
    else if (answerTest1 === questionAnswer5 || answerTest2 === questionAnswer5 || answerTest3 === questionAnswer5 || answerTest1 === questionAlternateAnswer5 || answerTest2 === questionAlternateAnswer5 || answerTest3 === questionAlternateAnswer5) {
-      answer5.placeholder = questionAnswer5;
-      scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer5point;
-      checkFamilySteal()
-      playCorrect();
+      if (answer5Guessed) {
+         playBuzzer();
+         addStrike();
+      }
+      else{
+         answer5.placeholder = questionAnswer5;
+         scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer5point;
+         answer5Guessed = true;
+         checkFamilySteal()
+         playCorrect(); 
+      }    
    }
    else if (answerTest1 === questionAnswer6 || answerTest2 === questionAnswer6 || answerTest3 === questionAnswer6 || answerTest1 === questionAlternateAnswer6 || answerTest2 === questionAlternateAnswer6 || answerTest3 === questionAlternateAnswer6) {
-      answer6.placeholder = questionAnswer6;
-      scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer6point;
-      checkFamilySteal()
-      playCorrect();
+      if (answer6Guessed) {
+         playBuzzer();
+         addStrike();
+      }
+      else{
+         answer6.placeholder = questionAnswer6;
+         scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer6point;
+         answer6Guessed = true;
+         checkFamilySteal()
+         playCorrect(); 
+      }     
    }
    else if (answerTest1 === questionAnswer7 || answerTest2 === questionAnswer7 || answerTest3 === questionAnswer7 || answerTest1 === questionAlternateAnswer7 || answerTest2 === questionAlternateAnswer7 || answerTest3 === questionAlternateAnswer7) {
-      answer7.placeholder = questionAnswer7;
-      scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer7point;
-      checkFamilySteal()
-      playCorrect();
+      if (answer7Guessed) {
+         playBuzzer();
+         addStrike();
+      }
+      else{
+         answer7.placeholder = questionAnswer7;
+         scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer7point;
+         answer7Guessed = true;
+         checkFamilySteal()
+         playCorrect();
+      } 
    }
    else if (answerTest1 === questionAnswer8 || answerTest2 === questionAnswer8 || answerTest3 === questionAnswer8 || answerTest1 === questionAlternateAnswer8 || answerTest2 === questionAlternateAnswer8 || answerTest3 === questionAlternateAnswer8) {
-      answer8.placeholder = questionAnswer8;
-      scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer8point;
-      checkFamilySteal()
-      playCorrect();
+      if (answer8Guessed) {
+         playBuzzer();
+         addStrike();
+      }
+      else{
+         answer8.placeholder = questionAnswer8;
+         scoreholder.value = parseInt(scoreholder.value) + questions[questionSelector].answer8point;
+         answer8Guessed = true;
+         checkFamilySteal()
+         playCorrect();
+      }  
    }
    else {
       playBuzzer();

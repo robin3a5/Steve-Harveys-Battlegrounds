@@ -15,7 +15,7 @@
     <title>Steve Harvey's Battlegrounds</title>
 
 </head>
-
+<!-- Add team turn at top, indicate if its chance to steal -->
 <body id="background" class="background-dark">
     <audio id="buzzer">
         <source src="buzzer.mp3" type="audio/mpeg">
@@ -41,7 +41,7 @@
             </div>
             <div  style="display: flex;
             justify-content: center;">
-                <button id="startButton" class="btn btn-primary" type="submit">Drop Into The Feud!</button>
+                <button id="startButton" class="btn btn-primary btn-lg" type="submit">Drop Into The Feud!</button>
             </div>
         </div>
         <div id="gameContainer">
@@ -118,12 +118,10 @@
                 <input id="userguess" class="form-control" type="text">
             </div>
             <div class="row justify-content-center" style="margin-top: 2%;">
-                <!-- make submit and new game buttons smaller -->
-                <div style="display: flex;
-                justify-content: center;">
-                <button id="submitButton" class="btn btn-primary" type="submit">Submit Answer </button>
-                <button id="newGameButton" class="btn btn-primary" type="submit">New Game</button>
-            </div>
+                <div style="display: flex; justify-content: center;">
+                    <button id="submitButton" class="btn btn-primary btn-lg" type="submit">Submit Answer </button>
+                    <button id="newGameButton" class="btn btn-primary btn-lg" type="submit">New Game</button>
+                </div>
             </div>
             <div class="row justify-content-center">
                 <input class="strike" id="strike1" type="text" disabled placeholder="">
